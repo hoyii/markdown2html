@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node" // 处理路径解析
+  },
+  "include": ["src/**/*", "lib/**/*"],
+  "exclude": ["node_modules"]
+}

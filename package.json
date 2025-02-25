@@ -1,0 +1,30 @@
+{
+  "name": "markdown2html",
+  "version": "1.0.0",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.13.4",
+    "entities": "^4.4.0",
+    "esm": "^3.2.25",
+    "mdurl": "^2.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "uc.micro": "^2.1.0"
+  },
+  "devDependencies": {
+    "entities": "^4.4.0",
+    "eslint": "^8.4.1",
+    "eslint-config-standard": "^17.1.0",
+    "uc.micro": "^2.1.0"
+  },
+  "type": "module"
+}
