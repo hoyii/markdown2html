@@ -4,17 +4,10 @@ import Renderer from './render/renderer.js'
 import ParserCore from './parsers/parser_core.js'
 import ParserBlock from './parsers/parser_block.js'
 import ParserInline from './parsers/parser_inline.js'
+import { textChangeRangeIsUnchanged } from 'typescript'
 
-// 定义 MarkdownIt 的选项类型
-interface MarkdownItOptions {
-  // 可以在这里定义你具体的选项字段
-  [key: string]: any;
-}
+import  preset_default  from './presets/default.js'
 
-// 定义环境类型
-interface Env {
-  [key: string]: any;
-}
 
 // 定义 MarkdownIt 实例的结构
 class MarkdownIt {
@@ -24,7 +17,7 @@ class MarkdownIt {
   renderer: any;
   utils: typeof utils;
   helpers: typeof helpers;
-  options: MarkdownItOptions;
+  options: any;
 
   constructor() {
     this.inline = new ParserInline();
@@ -34,14 +27,15 @@ class MarkdownIt {
     this.utils = utils;
     this.helpers = utils.assign({}, helpers);
     this.options = {};
+    this.set(preset_default.options)
   }
 
-  set(options: MarkdownItOptions): this {
+  set(options: any): this {
     utils.assign(this.options, options);
     return this;
   }
 
-  parse(src: string, env: Env = {}): any[] {
+  parse(src: string, env: any = {}): any[] {
     if (typeof src !== 'string') {
       throw new Error('Input data should be a String');
     }
@@ -52,7 +46,7 @@ class MarkdownIt {
     return state.tokens;
   }
 
-  render(src: string, env: Env = {}): string {
+  render(src: string, env: any = {}): string {
     return this.renderer.render(this.parse(src, env), this.options, env);
   }
 }
