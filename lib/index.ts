@@ -4,9 +4,8 @@ import Renderer from './render/renderer.js'
 import ParserCore from './parsers/parser_core.js'
 import ParserBlock from './parsers/parser_block.js'
 import ParserInline from './parsers/parser_inline.js'
-import { textChangeRangeIsUnchanged } from 'typescript'
 
-import  preset_default  from './presets/default.js'
+import preset_default from './presets/default.js'
 
 
 // 定义 MarkdownIt 实例的结构
