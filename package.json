@@ -1,15 +1,23 @@
 {
-  "name": "markdown2html",
-  "version": "1.0.0",
-  "main": "main.js",
+  "name": "@hoyii/markdown2html",
+  "version": "1.0.1",
   "directories": {
     "lib": "lib"
   },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && rollup -c",
+    "start": "node dist/cjs/main.js",
+    "dev": "rollup -c --watch",
+    "prepublishOnly": "npm run build"
   },
+  "files": [
+    "lib/",
+    "dist/"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "@types/node": "^22.13.4",
@@ -17,14 +25,18 @@
     "esm": "^3.2.25",
     "mdurl": "^2.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3",
     "uc.micro": "^2.1.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-typescript": "^12.1.2",
     "entities": "^4.4.0",
     "eslint": "^8.4.1",
     "eslint-config-standard": "^17.1.0",
+    "rollup": "^4.34.8",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.3",
     "uc.micro": "^2.1.0"
-  },
-  "type": "module"
+  }
 }

@@ -3,7 +3,7 @@ extends: standard
 overrides:
   - files: ['*.mjs', '*.js']
     rules:
-      no-restricted-globals: [2, require, __dirname]
+      no-restricted-globals: [2, __dirname]
   - files: ['test/**']
     env: { mocha: true }
   - files: ['lib/**', 'lib/parsers/*']
