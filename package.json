@@ -24,6 +24,7 @@
     "entities": "^4.4.0",
     "esm": "^3.2.25",
     "mdurl": "^2.0.0",
+    "rollup-plugin-dts": "^6.1.1",
     "ts-node": "^10.9.2",
     "uc.micro": "^2.1.0"
   },

@@ -1,8 +1,9 @@
 import typescript from '@rollup/plugin-typescript'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import dts from 'rollup-plugin-dts'
 
-export default {
+export default [{
   input: 'lib/index.ts',      // 入口文件
   output: [
     {
@@ -25,8 +26,20 @@ export default {
     resolve(),                      // 解析 node_modules 中的模块
     commonjs(),                     // 将 CommonJS 转为 ES Modules
     typescript({                    // 处理 TypeScript
-      tsconfig: './tsconfig.json'
+      tsconfig: './tsconfig.json',
+      declaration: false,           // 不生成声明文件
+      exclude: ['node_modules/**'] // 排除 node_modules 中的文件
     })
-  ],
-  external: ['']            // 标记外部依赖（如需要）
-}
+  ]
+},
+// 单独生成类型声明文件
+{
+  input: 'lib/index.ts',
+  output: {
+    dir: 'dist/types',
+    format: 'esm',
+    preserveModules: true,
+    preserveModulesRoot: 'lib'
+  },
+  plugins: [dts()]
+}]

@@ -9,7 +9,7 @@ import preset_default from './presets/default.js'
 
 
 // 定义 MarkdownIt 实例的结构
-class MarkdownIt {
+class Markdown2Html {
   inline: ParserInline;
   block: ParserBlock;
   core: ParserCore;
@@ -50,4 +50,4 @@ class MarkdownIt {
   }
 }
 
-export default MarkdownIt;
+export default Markdown2Html;
