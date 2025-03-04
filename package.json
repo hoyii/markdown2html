@@ -11,7 +11,8 @@
     "build": "rm -rf dist && rollup -c",
     "start": "node dist/cjs/main.js",
     "dev": "rollup -c --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "publish": "npm publish --access public"
   },
   "files": [
     "lib/",
