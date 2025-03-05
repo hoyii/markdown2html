@@ -10,7 +10,7 @@ import * as mdurl from 'mdurl'
 import punycode from 'punycode.js'
 
 
-// 定义 MarkdownIt 实例的结构
+// 定义 Markdown2Html 实例的结构
 class Markdown2Html {
   inline: ParserInline;
   block: ParserBlock;
@@ -75,12 +75,6 @@ function normalizeLink (url) {
   const parsed = mdurl.parse(url, true)
 
   if (parsed.hostname) {
-    // Encode hostnames in urls like:
-    // `http://host/`, `https://host/`, `mailto:user@host`, `//host/`
-    //
-    // We don't encode unknown schemas, because it's likely that we encode
-    // something we shouldn't (e.g. `skype:name` treated as `skype:host`)
-    //
     if (!parsed.protocol || RECODE_HOSTNAME_FOR.indexOf(parsed.protocol) >= 0) {
       try {
         parsed.hostname = punycode.toASCII(parsed.hostname)
